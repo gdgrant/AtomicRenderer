@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont, ImageColor
 
 
@@ -67,16 +66,7 @@ class AtomicRenderer:
 
 	def get_image_transposed_array(self):
 		return np.transpose(self.img_array, (1,0,2))
-
-
-	def plot_image_array(self):
-
-		fig, ax = plt.subplots(1, 1, figsize=(6,4))
-		im = ax.imshow(self.get_image_transposed_array(), aspect='equal')
-		ax.set_axis_off()
-		plt.tight_layout()
-		plt.show()
-
+		
 
 	def convert_array_to_image(self):
 
