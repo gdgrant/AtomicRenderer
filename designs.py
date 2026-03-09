@@ -1,4 +1,5 @@
 import numpy as np
+from fractions import Fraction
 
 
 def circle(A, B, C, color_option=0):
@@ -26,6 +27,37 @@ def circle(A, B, C, color_option=0):
 	else:
 		cs = np.sin(2*t)
 
+	return list(xs), list(ys), list(cs)
+
+
+def lissajous(A, B, C, color_option=0):
+
+	assert A >= 0 and A <= 1
+	assert B >= 0 and B <= 1
+	assert C >= 0 and C <= 1
+	assert color_option in [0,1,2]
+
+	a, b = A.as_integer_ratio()
+	f = Fraction(A).limit_denominator(100)
+	a = int(f.numerator)
+	b = int(f.denominator)
+
+	period = 2*np.pi/np.gcd(a,b)
+	t = np.linspace(0,period,250000)
+
+	rs = (0.5-C)*np.sin(8*t)
+	xs = (1-rs)*np.cos(b*t + B*np.pi)
+	ys = (1-rs)*np.cos(a*t)
+
+	if color_option == 0:
+		cs = np.sin(t/2)
+
+	elif color_option == 1:
+		cs = np.sin(t)
+
+	else:
+		cs = np.sin(2*t)
+	
 	return list(xs), list(ys), list(cs)
 
 

@@ -1,7 +1,7 @@
 from atomic_renderer import AtomicRenderer, postprocessors, make_colormap_from_four_hex
 
 from designs import circle, lorenz, sine_delay, burgers_map, aizawa, \
-	popcorn, hourglass, henon, gingerbread, cat
+	popcorn, hourglass, henon, gingerbread, cat, lissajous
 
 
 # Note 1: Some of the included designs (e.g., sine delay) have a bit of randomness,
@@ -43,11 +43,11 @@ bias_color 		= '#BB0099'
 
 # Design setup - choose from the imported set of designs, then tweak the options for that design
 # > lettered params are 0 to 1 (0.5=default), color options are {0,1,2}
-design = lorenz
-color_option = 1
-A = 0.5
-B = 0.5
-C = 0.5
+design = lissajous
+color_option = 0
+A = 0.50
+B = 0.50
+C = 0.50
 
 
 ##################
